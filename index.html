@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌱OrganicHub</title>
+    
+    <!-- Link to External Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"rel="stylesheet"/>
+
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen'></i>
+            <span class="logo navLogo"><a href="#">🌱OrganicHub</a></span>
+
+            <div class="menu">
+                <ul class="nav-links">
+                    <li><a href="#weather">Weather</a></li>
+                    <li><a href="#crops">Crops</a></li>
+                    <li><a href="#sellers">Sellers</a></li>
+                    <li><a href="#ai-question-form">AI</a></li>
+                    <!-- <li><a href="#shops">Shops</a></li> -->
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>
+                        <i class='bx bx-search search'></i>
+                    </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Section -->
+    <section id="carousel">
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="https://images.javatpoint.com/blog/images/advantages-and-disadvantages-of-organic-farming2.png" alt="Farm Landscape">
+                    <div class="carousel-caption">
+                        <h2>Sustainable Farming</h2>
+                        <p>Embrace eco-friendly practices for a greener planet.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://c8.alamy.com/zooms/9/14d37e7972044e9e84fb831e8e4f0d2b/pxxy2m.jpg" alt="Green Fields">
+                    <div class="carousel-caption">
+                        <!-- <h2>Fresh Organic Produce</h2>
+                        <p>Bringing healthy, organic products to your doorstep.</p> -->
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://thumbs.dreamstime.com/b/farmers-market-fresh-produce-stands-flat-design-illustration-333649344.jpg" alt="Organic Garden">
+                    <div class="carousel-caption">
+                        <!-- <h2>Empower Farmers</h2>
+                        <p>Join us in supporting local organic farming communities.</p> -->
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+        </div>
+    </section>
+    
+
+    <main>
+        <!-- Sections for Weather, Crops, Sellers, Products, Shops -->
+        <div id="weather-card" class="weather-card">
+            <section id="weather" class="content-section fade-in">
+                <!-- Weather Card Header -->
+                <div class="weather-header">
+                    <h1 id="location-name">Loading...</h1>
+                    <p id="date">Fetching date...</p>
+                    <p id="time">Fetching time...</p>
+                </div>
+        
+                <!-- Weather Main Information -->
+                <div class="weather-main">
+                    <div class="main-info">
+                        <div class="condition-icon">
+                            <img id="weather-icon" src="" alt="Weather Icon" class="weather-icon">
+                        </div>
+                        <div class="temp-condition">
+                            <span id="temperature">--°C</span>
+                            <p style="font-size: smaller;">Todays Average:</p>
+                            <span id="temperature-range">--°C - --°C</span>
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <p>Wind: <span id="wind-speed">-- km/h</span></p>
+                        <p>Rain: <span id="rain-chance">--%</span></p>
+                    </div>
+                </div>
+        
+                <!-- Hourly Forecast -->
+                <div class="hourly-forecast" id="hourly-forecast">
+                    <p>Loading hourly forecast...</p>
+                </div>
+            </section>
+        </div>
+
+        <section id="crops" class="content-section fade-in">
+            <h2 class="section-title">🌾 Best Crop Recommendation 🌾</h2>
+            <div class="section-content">
+                <button class="cta-button" onclick="getBestCrop()">Get Crop Recommendation</button>
+                <div id="crop-result" class="result-container">
+                    <h3 id="result-title" class="result-title">🌱 Your recommended crop(s) will appear here. 🌱</h3>
+                </div>
+            </div>
+        </section>
+        
+        <section id="sellers" class="content-section fade-in">
+            <h2>Nearby Organic Product Sellers/Buyers</h2>
+            <div class="section-content">
+                <button class="cta-button" onclick="getNearbySellers()">Find Nearby Sellers</button>
+                <div id="sellers-result" class="result"></div>
+                <div id="map" class="map"></div>
+            </div>
+        </section>
+        
+        <!-- Include Leaflet.js -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+        
+
+        <!-- <section id="products" class="content-section fade-in">
+            <h2>Products Needed for Your Crop</h2>
+            <div class="section-content">
+                <button class="cta-button" onclick="getProductsForCrop()">Get Product List</button>
+                <div id="products-result" class="result"></div>
+            </div>
+        </section> -->
+
+       
+        <!-- AI Question Section -->
+        <main>
+            <!-- Chatbot Icon -->
+            <div id="chatbot-icon">
+                💬
+            </div>
+        
+            <!-- Chatbot Box -->
+            <div id="chatbot-box" class="hidden">
+                <div id="chatbot-header">
+                    <h3>Ask a Question</h3>
+                    <button id="chatbot-close">&times;</button>
+                </div>
+                <form id="ai-question-form">
+                    <input
+                        type="text"
+                        id="ai-question-input"
+                        placeholder="Ask a question (e.g., Best crop for this season)"
+                        required
+                    />
+                    <button type="submit">Get Answer</button>
+                </form>
+                <div id="ai-answer"></div>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-container">
+                <!-- Company Info -->
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <p>
+                        Organic Farming Hub is dedicated to providing sustainable farming solutions. 
+                        Join us in creating a greener future!
+                    </p>
+                </div>
+        
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Contact Info -->
+                <div class="footer-section">
+                    <h4>Contact Us</h4>
+                    <p>Email: <a href="mailto:support@organicfarminghub.com">support@organicfarminghub.com</a></p>
+                    <p>Phone: +1 234 567 890</p>
+                    <p>Address: 123 Greenway Lane, EcoCity</p>
+                </div>
+        
+                <!-- Social Media -->
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Organic Farming Hub. All Rights Reserved.</p>
+            </div>
+        </footer>
+        
+        
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+</body>
+</html>

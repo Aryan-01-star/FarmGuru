@@ -1,0 +1,1063 @@
+/* Root Variables for Theming */
+:root{
+    --body-color: #E4E9F7;
+    --nav-color: #2bcc3b;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+
+/* Carousel */
+/* Add space at the top of the website */
+body {
+    margin-top: 5%; /* Ensure top spacing for the entire website */
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1200px;
+    height: 500px;
+    margin: 2rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Ensure each item takes full width */
+    max-width: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.carousel-item.active {
+    display: block; /* Show the active item */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: opacity 0.5s ease-in-out; /* Ensure smooth transition */
+    background-color: transparent; /* Prevent white background overlay */
+}
+
+
+.carousel-caption {
+    position: absolute;
+    bottom: 1.5rem; /* Slightly raised from the bottom */
+    left: 1.5rem;  /* Added spacing from the left */
+    right: 1.5rem; /* Added spacing from the right */
+    background-color: none; /* Ensures text is readable */
+    padding: 1rem 1.5rem; /* Padding around the text */
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4rem; /* Slightly larger font size for better visibility */
+    font-weight: 500;
+    animation: fadeIn 1s ease-in;
+    max-width: calc(100% - 3rem); /* Avoids overflow by adjusting the width */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Carousel Button */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    color: #33ff00;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.6rem;
+    z-index: 10; /* Ensure buttons are on top of carousel */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: transparent; /* Removed background color */
+}
+
+.carousel-button:hover {
+    background-color: #33333300;
+    color: #fff;
+}
+
+
+.carousel-button.prev {
+    left: 20px; /* Ensure buttons are inside carousel bounds */
+}
+
+.carousel-button.next {
+    right: 20px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    .carousel-container {
+        height: 400px;
+    }
+
+    .carousel-item img {
+        height: 400px;
+    }
+
+    .carousel-caption {
+        bottom: 1.5rem;
+        left: 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-container {
+        width: 95%;
+        height: 350px;
+    }
+
+    .carousel-item img {
+        height: 350px;
+    }
+
+    .carousel-caption {
+        bottom: 1rem;
+        left: 1rem;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .carousel-button {
+        font-size: 1.5rem;
+        padding: 0.4rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-container {
+        width: 100%;
+        height: 300px;
+    }
+
+    .carousel-item img {
+        height: 300px;
+    }
+
+    .carousel-caption {
+        bottom: 0.8rem;
+        left: 0.8rem;
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .carousel-button {
+        font-size: 1.3rem;
+        padding: 0.3rem;
+    }
+}
+
+/* General styling for the crops section */
+#crops {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Title Styling */
+#crops .section-title {
+    font-size: 24px;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+#crops .cta-button {
+    font-size: 16px;
+    color: white;
+    background-color: #4caf50;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#crops .cta-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#crops .cta-button:active {
+    background-color: #3e8e41;
+}
+
+/* Result Container */
+#crops .result-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Result Title Styling */
+#crops .result-title {
+    font-size: 18px;
+    color: #555;
+    font-style: italic;
+}
+
+/* Recommended Crops Styling */
+#crop-result h3 {
+    font-size: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+#crop-result h3 span {
+    color: #4caf50;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #crops {
+        padding: 20px 10px;
+        max-width: 100%;
+        width: 95%;
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #crop-result h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 20px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .result-title {
+        font-size: 16px;
+    }
+
+    #crop-result h3 {
+        font-size: 16px;
+    }
+}
+
+
+
+/* ===== Google Font Import - Poppins ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;;
+}
+
+
+/* ===== Colours ===== */
+
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+}
+
+body.dark nav{
+    border: 1px solid #393838;
+
+}
+
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1300px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+nav .nav-bar .logo a{
+    font-size: 17px;
+    font-weight: bolder;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.menu .logo-toggle{
+    display: none;
+}
+
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+.nav-bar .nav-links li{
+    margin: 0 9px;
+    list-style: none;
+}
+
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.searchBox{
+    position: relative;
+}
+
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+
+body.dark .search-field input{
+    color: var(--text-color);
+}
+
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+@media (max-width: 790px) {
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    nav.active .menu{
+        left: -0%;
+    }
+
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+}
+/* General Styles for Weather Card */
+.weather-card {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Weather Header */
+.weather-header h1 {
+    font-size: 25px;
+    margin: 0;
+}
+
+.weather-header p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Main Weather Information */
+.weather-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.temp-condition {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.temp-condition span {
+    display: block;
+    margin: 4px 0;
+}
+
+.condition-icon img {
+    width: 90px;
+    margin: 15px 0;
+}
+
+.weather-details {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 17px;
+    margin-top: 12px;
+}
+
+/* Hourly Forecast Section */
+.hourly-forecast {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scrollbar-width: thin;
+}
+
+.hourly-forecast div {
+    text-align: center;
+    margin: 0 10px;
+    min-width: 80px;
+    font-size: 14px;
+}
+
+.hourly-forecast img {
+    width: 50px;
+    margin: 10px 0;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.weather-card {
+    animation: fade-in 0.8s ease-out;
+}
+@media (max-width: 790px) {
+    .weather-card{
+        width: 95%;        
+    }
+}
+
+/* Scoped Styles for the #sellers Section */
+#sellers {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    position: relative;
+}
+
+#sellers h2 {
+    font-size: 1.5rem; /* Scales better on smaller screens */
+    margin-bottom: 16px;
+    color: #333;
+}
+
+#sellers .section-content {
+    margin-top: 10px;
+}
+
+#sellers .cta-button {
+    padding: 10px 20px;
+    font-size: 1rem; /* Adjusts to viewport size */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#sellers .cta-button:hover {
+    background-color: #218838;
+}
+
+#sellers .result {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 1rem;
+    color: #333;
+}
+
+#sellers .result-item {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Map container */
+/* Header styling */
+header {
+    position: fixed; /* Ensure the header stays at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Higher z-index to stay above other elements */
+    background-color: #fff; /* Optional: to ensure visibility */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: header shadow */
+}
+
+/* Map container */
+#map {
+    width: 100%;
+    height: 400px; /* Adjusted for responsiveness */
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1; /* Lower z-index to stay behind the header */
+    position: relative; /* Ensure proper stacking context */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    #sellers {
+        max-width: 100%;
+        width: 95%;
+    }
+    #sellers h2 {
+        font-size: 1.25rem; /* Slightly smaller heading */
+    }
+    #sellers .cta-button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    #sellers .result {
+        font-size: 0.9rem;
+    }
+    #map {
+        height: 300px; /* Reduce map height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #sellers h2 {
+        font-size: 1rem; /* Compact heading */
+    }
+    #sellers .cta-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    #sellers .result {
+        font-size: 0.8rem;
+    }
+    #map {
+        height: 250px; /* Further reduce map height for very small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    #sellers h2 {
+        font-size: 1rem; /* Compact heading */
+    }
+
+    #sellers .cta-button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    #sellers .result {
+        font-size: 0.8rem;
+    }
+
+    #map {
+        height: 250px; /* Further reduce map height for very small screens */
+    }
+}
+
+/* Chatbot Icon */
+#chatbot-icon {
+    position: fixed;
+    bottom: 80px; /* Above footer */
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #27ae60; /* Green background */
+    color: #fff;
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#chatbot-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Chatbot Box */
+#chatbot-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    z-index: 1000;
+    border: 1px solid #ddd;
+    display: none; /* Initially hidden */
+}
+
+/* Chatbot Header */
+#chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#chatbot-header h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+#chatbot-close {
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 1.5rem; /* Font size for 'X' */
+    color: #333; /* Default color */
+    cursor: pointer;
+    padding: 0; /* Remove padding */
+    transition: color 0.3s; /* Smooth color change on hover */
+}
+
+#chatbot-close:hover {
+    color: #e74c3c; /* Red color on hover */
+}
+
+
+/* Form Styles */
+#chatbot-box input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#chatbot-box button {
+    width: 100%;
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#chatbot-box button:hover {
+    background-color: #1e8449;
+}
+
+/* Show Chatbot Box */
+#chatbot-box.visible {
+    display: block;
+}
+
+/* Overlay for Clicking Outside */
+#chatbot-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+}
+
+#chatbot-overlay.visible {
+    display: block;
+}
+/* Footer Styles */
+footer {
+    background-color: #2c3e50; /* Dark background */
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    padding: 40px 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #27ae60; /* Green highlight */
+}
+
+.footer-section p,
+.footer-section a {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #27ae60;
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #27ae60; /* Green on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+}
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        margin-bottom: 20px;
+    }
+}
